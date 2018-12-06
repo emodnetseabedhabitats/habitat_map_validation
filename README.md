@@ -8,7 +8,7 @@ This page gives an overview to the new EMODnet Data Validation Tool developed wi
 
 ### Opening screen
 
-![](./images/opening.PNG)
+![](./vignette/images/opening.PNG)
 
 1.  **Zip upload**
 
@@ -32,27 +32,27 @@ This page gives an overview to the new EMODnet Data Validation Tool developed wi
 
 This indicates what proportion of total **code** has been run, rather than what proportion of total **time** has elapsed. I've tried to set it up to give as close an indiation as possible to time remaining, but the bar will inevitably run through the first half or so more quickly, and the latter half more slowly. I've used code progress rather than shiny being in a busy state as often switching between tabs or altering plots triggered 'busy'. <br>
 
-![](./images/progress.PNG)
+![](./vignette/images/progress.PNG)
 
 #### Background functions
 
 The function `id.def()` from `validation.R` runs in the background when `Validate` is clicked, to ensure that the specified DEF matches the data. In cases where this is not true, the **detected** DEF is used in validation, and a warning is issued that it does not match the supplied DEF. <br>
 
-![](./images/def.PNG)
+![](./vignette/images/def.PNG)
 
 #### Mapping
 
 As mentioned previously, there are two different mapping options, namely `basic` and `interactive`, using `ggplot2` and `plotly` respectivly. The `ggplot2` implementation is fairly basic and faster than the interactive version. <br>
 
-![](./images/basic.PNG)
+![](./vignette/images/basic.PNG)
 
 The interactive plots allow you to show and hide layers and the location of errors... <br>
 
-![](./images/valid_errors.PNG)
+![](./vignette/images/valid_errors.PNG)
 
 ...and to zoom and superimpose simple maps to give a spatial context to the data. <br>
 
-![](./images/europe.PNG)
+![](./vignette/images/europe.PNG)
 
 #### Spatial validation
 
@@ -62,7 +62,7 @@ Spatial validation is conducted by the `validation.R` functions `crs.check()` an
 
 -   `geom.test()` runs a `st_is_valid()` check from the package `sf` on the shapefile, returning the results as a table, indicating which polygon has which error and at which location. This information is also plotted under `Validity errors` on the mapping tab <br>
 
-![](./images/spatial_validation.PNG)
+![](./vignette/images/spatial_validation.PNG)
 
 #### Overlap validation
 
@@ -72,7 +72,7 @@ Validation that overlaps are correct is conducted by the `validation.R` function
 
 -   `intersect.test()` checks for **partial overlaps** in polygons, and reports which polygon partially overlaps which other polygons. In the case of a 'Study Area DEF' shapefile, this function also reports if there is more than one feature present in the file. This check is conducted using `st_overlaps()` from `sf`. I had originally intended to use `st_relate()` and search for polygon relationships using DE9-IM strings, however this proved to be much slower in the case of large files. <br>
 
-![](./images/overlap_validation.PNG)
+![](./vignette/images/overlap_validation.PNG)
 
 #### Dataset validation
 
@@ -86,7 +86,7 @@ Validation of the dataset, i.e. that all mandatory fields are present and of the
 
 Where a DEF field is not mandatory but present in the uploaded file, errors are only returned when the data does not match the expected format or class. Fields present in the data but not in the DEF are returned with the message *"This field is not present in the DEF and may be discarded upon upload"*. <br>
 
-![](./images/dataset_validation.PNG)
+![](./vignette/images/dataset_validation.PNG)
 
 ### Comments and suggestions
 
