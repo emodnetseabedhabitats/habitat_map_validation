@@ -1,8 +1,8 @@
 ## EMODnet Data Validation Tool
 #### Alun Jones
-#### 28th November 2018
+#### 5th December 2018
 
-<img src="./images/jncc.png" style="position:absolute;top:10px;right:100px;" /> <br>
+<br>
 
 This page gives an overview to the new EMODnet Data Validation Tool developed with Shiny and R, specifically looking at why features were added, and how the validation functions work, what they check for, and what they don't.
 
